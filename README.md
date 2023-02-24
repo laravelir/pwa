@@ -1,9 +1,9 @@
-- [![Starts](https://img.shields.io/github/stars/miladimos/package-skeleton?style=flat&logo=github)](https://github.com/miladimos/package-skeleton/forks)
-- [![Forks](https://img.shields.io/github/forks/miladimos/package-skeleton?style=flat&logo=github)](https://github.com/miladimos/package-skeleton/stargazers)
-  [![Total Downloads](https://img.shields.io/packagist/dt/miladimos/package-skeleton.svg?style=flat-square)](https://packagist.org/packages/miladimos/package-skeleton)
+- [![Starts](https://img.shields.io/github/stars/laravelir/pwa?style=flat&logo=github)](https://github.com/laravelir/pwa/forks)
+- [![Forks](https://img.shields.io/github/forks/laravelir/pwa?style=flat&logo=github)](https://github.com/laravelir/pwa/stargazers)
+  [![Total Downloads](https://img.shields.io/packagist/dt/laravelir/pwa.svg?style=flat-square)](https://packagist.org/packages/laravelir/pwa)
 
 
-# vendor/package
+# laravelir/pwa
 
 A package for fun
 
@@ -12,19 +12,19 @@ A package for fun
 1. Run the command below to add this package:
 
 ```
-composer require vendor/package
+composer require laravelir/pwa
 ```
 
 2. Open your config/app.php and add the following to the providers array:
 
 ```php
-Vendor\Package\Providers\PackageServiceProvider::class,
+Laravelir\Pwa\Providers\PwaServiceProvider::class,
 ```
 
 1. Run the command below to install the package:
 
 ```
-php artisan package:install
+php artisan pwa:install
 ```
 
 
