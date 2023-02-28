@@ -1,5 +1,5 @@
 {
-    "name": "laravel/pwa",
+    "name": "laravelir/pwa",
     "description": "test description",
     "homepage": "https://github.com/laravel/pwa",
     "type": "library",
@@ -22,7 +22,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "laravelir\\Pwa\\": "src/"
+            "Laravelir\\Pwa\\": "src/"
         },
         "files": [
             "./src/helpers.php"
@@ -30,16 +30,16 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "laravelir\\Pwa\\Tests\\": "tests"
+            "Laravelir\\Pwa\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "laravelir\\Pwa\\Providers\\PwaServiceProvider"
+                "Laravelir\\Pwa\\Providers\\PwaServiceProvider"
             ],
             "aliases": {
-                "Pwa": "laravelir\\Pwa\\Facades\\Pwa"
+                "Pwa": "Laravelir\\Pwa\\Facades\\Pwa"
             }
         }
     },

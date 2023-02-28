@@ -5,7 +5,7 @@
 
 # laravelir/pwa
 
-A package for fun
+pwa for laravel
 
 ### Installation
 

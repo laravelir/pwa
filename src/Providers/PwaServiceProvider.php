@@ -3,7 +3,7 @@
 namespace Laravelir\Pwa\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Laravelir\Pwa\Console\Commands\InstallPwaCommand;
+use Laravelir\Pwa\Console\Commands\InstallPackageCommand;
 use Laravelir\Pwa\Facades\Pwa;
 
 class PwaServiceProvider extends ServiceProvider
@@ -42,7 +42,7 @@ class PwaServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
 
             $this->commands([
-                InstallPwaCommand::class,
+                InstallPackageCommand::class,
             ]);
         }
     }
@@ -50,8 +50,8 @@ class PwaServiceProvider extends ServiceProvider
     public function publishConfig()
     {
         $this->publishes([
-            __DIR__ . '/../../config/package.php' => config_path('package.php')
-        ], 'package-config');
+            __DIR__ . '/../../config/pwa.php' => config_path('pwa.php')
+        ], 'pwa-config');
     }
 
     // private function publishStubs()
