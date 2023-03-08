@@ -27,6 +27,7 @@ Laravelir\Pwa\Providers\PwaServiceProvider::class,
 php artisan pwa:install
 ```
 
+safari support
 
 ## Testing
 

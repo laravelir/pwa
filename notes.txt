@@ -1,0 +1,9 @@
+https://web.dev/progressive-web-apps/
+https://developer.mozilla.org/en-US/docs/Web/Manifest
+https://web.dev/pwa-checklist/
+https://www.brightscout.com/insight/the-full-guide-to-progressive-web-apps-pwa
+
+https://github.com/silviolleite/laravel-pwa
+https://infyom.com/blog/how-to-make-a-laravel-application-pwa
+https://github.com/shailesh-ladumor/laravel-pwa
+

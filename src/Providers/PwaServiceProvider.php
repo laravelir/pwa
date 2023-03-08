@@ -2,8 +2,10 @@
 
 namespace Laravelir\Pwa\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Laravelir\Pwa\Console\Commands\InstallPackageCommand;
+use Laravelir\Pwa\Console\Commands\PwaGenerateCommand;
 use Laravelir\Pwa\Facades\Pwa;
 
 class PwaServiceProvider extends ServiceProvider
@@ -43,6 +45,7 @@ class PwaServiceProvider extends ServiceProvider
 
             $this->commands([
                 InstallPackageCommand::class,
+                PwaGenerateCommand::class,
             ]);
         }
     }
@@ -61,32 +64,13 @@ class PwaServiceProvider extends ServiceProvider
     //     ], 'package-stubs');
     // }
 
-    // protected function registerBladeDirectives()
-    // {
-    //     Blade::directive('format', function ($expression) {
-    // return "<?php echo ($expression)->format('m/d/Y H:i') ?/>";
-    //     });
+     protected function registerBladeDirectives()
+     {
+         $src = "";
+         Blade::directive('pwa-scripts', function ($expression) use ($src) {
+             return "<?php echo $src ?/>";
+         });
 
-    //     Blade::directive('config', function ($key) {
-    //         return "<?php echo config('package.' . $key); ?/>";
-    //     });
-    // }
+     }
 
-    // protected function registerMiddleware(Kernel $kernel, Router $router)
-    // {
-    //     // global
-    //     $kernel->pushMiddleware(CapitalizeTitle::class);
-
-    //     // route middleware
-    //     // $router = $this->app->make(Router::class);
-    //     $router->aliasMiddleware('capitalize', CapitalizeTitle::class);
-
-    //     // group
-    //     $router->pushMiddlewareToGroup('web', CapitalizeTitle::class);
-    // }
-
-    // public function registerLivewireComponents()
-    // {
-    // Livewire::component('test', Test::class);
-    // }
 }
