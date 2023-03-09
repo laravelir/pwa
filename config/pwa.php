@@ -2,6 +2,7 @@
 
 // config file for laravelir/pwa
 return [
+    'show_install_banner' => false,
     'sw' => [
         'cache' => [
             'name' => '',

@@ -23,6 +23,12 @@ self.addEventListener("install", evt => {
     );
 });
 
+
+self.addEventListener('activate', event => {
+
+});
+
+
 self.addEventListener("fetch", evt => {
     evt.respondWith(
         caches
@@ -37,3 +43,4 @@ self.addEventListener("fetch", evt => {
             })
     );
 });
+
