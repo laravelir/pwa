@@ -8,6 +8,6 @@
     <title>Offline</title>
 </head>
 <body>
-    Your are is offline.
+    <h1>You are currently offline.</h1>
 </body>
 </html>

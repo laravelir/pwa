@@ -34,18 +34,16 @@ self.addEventListener("install", evt => {
 
 
 self.addEventListener('activate', evt => {
-    let expectedName = Object.values(staticCacheName);
-    evt.waitUntil(
+    event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
-                cacheNames.forEach(cacheName => {
-                    if (!expectedName.includes(cacheName)) {
-                        return caches.delete(cacheName)
-                    }
-                })
-            )
+                cacheNames
+                    .filter(cacheName => (cacheName.startsWith("pwa-")))
+                    .filter(cacheName => (cacheName !== staticCacheName))
+                    .map(cacheName => caches.delete(cacheName))
+            );
         })
-    )
+    );
 });
 
 self.addEventListener("fetch", evt => {

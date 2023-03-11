@@ -58,11 +58,16 @@ class PwaServiceProvider extends ServiceProvider
 
     protected function registerBladeDirectives()
     {
+/*        return "<?php \$config = (new \LaravelPWA\Services\ManifestService)->generate(); echo \$__env->make( 'laravelpwa::meta' , ['config' => \$config])->render(); ?>";*/
+
         $src = "";
-        Blade::directive('pwa-scripts', function ($expression) use ($src) {
+        Blade::directive('pwa_metas', function ($expression) use ($src) {
             return "<?php echo $src ?/>";
         });
 
+        Blade::directive('pwa_sw', function ($expression) use ($src) {
+            return "<?php echo $src ?/>";
+        });
     }
 
 }

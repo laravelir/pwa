@@ -32,18 +32,21 @@ php artisan pwa:install
 php artisan pwa:generate
 ```
 
-5. and add pwa blade directive to html:
+5. and add pwa directives to your master file:
 ```php
 <html>
 <head>
     <title>My Pwa Project</title>
     ...
-    @pwa_scripts
+    
+    @pwa_metas
 </head>
 <body>
     ...
     My content
     ...
+    
+    @pwa_sw
 </body>
 </html> 
 ```
