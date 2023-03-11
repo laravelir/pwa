@@ -88,12 +88,14 @@ return [
             ]
         ],
     ],
+    'metas' => [
+
+    ],
     'sw' => [
         'cache' => [
             'name' => '',
             'assets' => [],
         ]
     ],
-
     'custom' => [],
 ];

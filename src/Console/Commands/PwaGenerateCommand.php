@@ -14,31 +14,24 @@ class PwaGenerateCommand extends Command
 
     public function handle()
     {
-        $this->line("\t... Welcome To Pwa Installer ...");
+        $sw = file_get_contents('');
 
         $manifest = resolve(ManifestGenerator::class)->generate();
 
-        File::put(public_path("manifest.json"), json_encode($manifest, JSON_PRETTY_PRINT));
+        if (File::exists(public_path('manifest.json'))) {
+            $confirm = $this->confirm('manifest.json exists! do you want overwrite it?');
+            if ($confirm) {
+                File::delete(public_path('manifest.json'));
+                File::put(public_path("manifest.json"), json_encode($manifest, JSON_PRETTY_PRINT));
+            } else {
+                $this->line('you must overwrite it; try again.');
+                die;
+            }
+        }
+
+
+
 
         $this->line('manifest.json file has been created.');
-
-        $this->info("Package Successfully Installed.\n");
-        $this->info("\t\tGood Luck.");
     }
-
-    //       //config
-    //       if (File::exists(config_path('pwa.php'))) {
-    //         $confirm = $this->confirm("pwa.php already exist. Do you want to overwrite?");
-    //         if ($confirm) {
-    //             $this->publishConfig();
-    //             $this->info("config overwrite finished");
-    //         } else {
-    //             $this->info("skipped config publish");
-    //         }
-    //     } else {
-    //         $this->publishConfig();
-    //         $this->info("config published");
-    //     }
-
-
 }
