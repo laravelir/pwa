@@ -1,16 +1,18 @@
 {
     "name": "laravelir/pwa",
-    "description": "test description",
-    "homepage": "https://github.com/laravel/pwa",
+    "description": "pwa for laravel",
+    "homepage": "https://github.com/laravelir/pwa",
     "type": "library",
-    "version": "0.1.0",
+    "version": "0.1.6",
     "keywords": [
         "laravel",
         "laravel-package",
         "laravel support",
         "lumen packages",
         "laravel packages",
-        "lumen support"
+        "lumen support",
+        "pwa",
+        "laravel pwa"
     ],
     "authors": [
         {
