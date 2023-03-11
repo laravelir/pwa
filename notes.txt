@@ -7,3 +7,7 @@ https://github.com/silviolleite/laravel-pwa
 https://infyom.com/blog/how-to-make-a-laravel-application-pwa
 https://github.com/shailesh-ladumor/laravel-pwa
 
+add indexeddb with dexie.js
+add push notifications
+
+add camera and webcam location

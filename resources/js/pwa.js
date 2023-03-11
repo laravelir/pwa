@@ -20,11 +20,11 @@ window.addEventListener('beforeinstallprompt', event => {
 
 document.querySelector('.btn_show_banner').addEventListener('click', (e) => {
     e.preventDefault();
-    if(installPromptEvent) {
+    if (installPromptEvent) {
         installPromptEvent.prompt();
         installPromptEvent.userChoice
             .then((choice) => {
-                if(choice.outcome === 'accepted') {
+                if (choice.outcome === 'accepted') {
 
                 } else {
 
@@ -35,3 +35,47 @@ document.querySelector('.btn_show_banner').addEventListener('click', (e) => {
     }
 });
 
+
+const getNotificationPermission = async () => {
+    if (navigator.permissions) {
+        let result = await navigator.permissions
+            .query({name: 'notifications'});
+        return result.state;
+
+    }
+};
+
+let currentNotificationPermissionState = await getNotificationPermission();
+
+notificationBtn.addEventListener('click', async  (event) => {
+    event.preventDefault();
+
+    if (!('serviceWorker' in navigator) && !('PushManager' in window)) {
+        console.log('not support')
+        return;
+    }
+
+    if(currentNotificationPermissionState !== 'granted') {
+        let res = await  Notification.requestPermission();
+        if(res !== 'granted') {
+            console.log('permission no granted')
+            return;
+        }
+    } else {
+        navigator.serviceWorker.ready.then(registration => {
+            registration.showNotification('اعلان', {
+                body: 'ـوضیحات',
+                dir: 'rtl',
+                icon: 'icons.png',
+                badge: 'icon.ico',
+                renotify: true,
+                actions: [
+                   {
+                       title: '',
+                       action: ''
+                   },
+                ]
+            })
+        })
+    }
+});

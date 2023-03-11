@@ -18,23 +18,15 @@ class PwaServiceProvider extends ServiceProvider
         $this->registerFacades();
     }
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
     public function boot()
     {
-
         $this->registerCommands();
-
-        // $this->publishStubs();
-        // $this->registerLivewireComponents();
+        $this->publishStubs();
     }
 
     private function registerFacades()
     {
-        $this->app->bind('package', function ($app) {
+        $this->app->bind('pwa', function ($app) {
             return new Pwa();
         });
     }
@@ -57,20 +49,20 @@ class PwaServiceProvider extends ServiceProvider
         ], 'pwa-config');
     }
 
-    // private function publishStubs()
-    // {
-    //     $this->publishes([
-    //         __DIR__ . '/../Console/Stubs' => resource_path('vendor/laravelir/package/stubs'),
-    //     ], 'package-stubs');
-    // }
+    private function publishStubs()
+    {
+        $this->publishes([
+            __DIR__ . '/../Console/Stubs' => resource_path('vendor/laravelir/pwa/stubs'),
+        ], 'pwa-stubs');
+    }
 
-     protected function registerBladeDirectives()
-     {
-         $src = "";
-         Blade::directive('pwa-scripts', function ($expression) use ($src) {
-             return "<?php echo $src ?/>";
-         });
+    protected function registerBladeDirectives()
+    {
+        $src = "";
+        Blade::directive('pwa-scripts', function ($expression) use ($src) {
+            return "<?php echo $src ?/>";
+        });
 
-     }
+    }
 
 }

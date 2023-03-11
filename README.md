@@ -7,7 +7,7 @@
 
 pwa for laravel
 
-### Installation
+### Installation / Use
 
 1. Run the command below to add this package:
 
@@ -21,11 +21,43 @@ composer require laravelir/pwa
 Laravelir\Pwa\Providers\PwaServiceProvider::class,
 ```
 
-1. Run the command below to install the package:
+3. Run the command below to install the package:
 
 ```
 php artisan pwa:install
 ```
+
+4. open pwa.php config file and fill your configs and run bellow command to generate manifest.json file:
+```php
+php artisan pwa:generate
+```
+
+5. and add pwa blade directive to html:
+```php
+<html>
+<head>
+    <title>My Pwa Project</title>
+    ...
+    @pwa_scripts
+</head>
+<body>
+    ...
+    My content
+    ...
+</body>
+</html> 
+```
+
+6. create offline view and route:
+
+
+
+
+### Services
+
+
+
+### Features
 
 safari support
 
