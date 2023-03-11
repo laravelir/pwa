@@ -2,7 +2,7 @@
 <link rel="manifest" href="{{ public_path('manifest.json') }}">
 
 <!-- Chrome for Android theme color -->
-<meta name="theme-color" content="{{ $config['theme_color'] }}">
+<meta name="theme-color" content="{{ config('pwa.manifest.theme_color') }}">
 
 <!-- Add to homescreen for Chrome on Android -->
 <meta name="mobile-web-app-capable" content="{{ $config['display'] == 'standalone' ? 'yes' : 'no' }}">
@@ -14,7 +14,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="{{  $config['status_bar'] }}">
 <meta name="apple-mobile-web-app-title" content="{{ $config['short_name'] }}">
 <link rel="apple-touch-icon" href="{{ data_get(end($config['icons']), 'src') }}">
-
 
 <link href="{{ $config['splash']['640x1136'] }}" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
 <link href="{{ $config['splash']['750x1334'] }}" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />

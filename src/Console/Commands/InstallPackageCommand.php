@@ -29,6 +29,11 @@ class InstallPackageCommand extends Command
             $this->info("config published");
         }
 
+        $sw_stub_path = dirname(__DIR__) . DIRECTORY_SEPARATOR .'Stubs' . DIRECTORY_SEPARATOR . 'sw.js.stub';
+
+        $sw = file_get_contents($sw_stub_path);
+        File::put(public_path('sw.js'), $sw);
+
         $this->info("Package Successfully Installed.\n");
         $this->info("\t\tGood Luck.");
     }

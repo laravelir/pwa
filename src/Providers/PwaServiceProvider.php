@@ -22,6 +22,7 @@ class PwaServiceProvider extends ServiceProvider
     {
         $this->registerCommands();
         $this->publishStubs();
+        $this->publishConfig();
     }
 
     private function registerFacades()

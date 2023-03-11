@@ -1,4 +1,4 @@
-<script src="{{ public_path('sw.js') }}"></script>
+<script src="{{ public_path('sw.js.stub') }}"></script>
 
 <script type="text/javascript">
 
