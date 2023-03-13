@@ -14,7 +14,6 @@ class PwaGenerateCommand extends Command
 
     public function handle()
     {
-        $sw = file_get_contents('');
 
         $manifest = resolve(ManifestGenerator::class)->generate();
 
@@ -22,16 +21,23 @@ class PwaGenerateCommand extends Command
             $confirm = $this->confirm('manifest.json exists! do you want overwrite it?');
             if ($confirm) {
                 File::delete(public_path('manifest.json'));
-                File::put(public_path("manifest.json"), json_encode($manifest, JSON_PRETTY_PRINT));
+                $this->createManifestFile($manifest);
+                $this->line('manifest.json file has been overwrite.');
             } else {
                 $this->line('you must overwrite it; try again.');
                 die;
             }
+        } else {
+            $this->createManifestFile($manifest);
+            $this->line('manifest.json file has been created.');
         }
 
-
-
-
-        $this->line('manifest.json file has been created.');
     }
+
+
+    private function createManifestFile($manifest)
+    {
+        File::put(public_path("manifest.json"), json_encode($manifest, JSON_PRETTY_PRINT));
+    }
+
 }

@@ -59,26 +59,28 @@ return [
                 'type' => 'image/png',
             ],
         ],
-        'splash' => [
-            '640×1136' => '/images/icons/splash-640×1136.png',
-            '750×1334' => '/images/icons/splash-750×1334.png',
-            '828×1792' => '/images/icons/splash-828×1792.png',
-            '1125×2436' => '/images/icons/splash-1125×2436.png',
-            '1242×2208' => '/images/icons/splash-1242×2208.png',
-            '1242×2688' => '/images/icons/splash-1242×2688.png',
-            '1536×2048' => '/images/icons/splash-1536×2048.png',
-            '1668×2224' => '/images/icons/splash-1668×2224.png',
-            '1668×2388' => '/images/icons/splash-1668×2388.png',
-            '2048×2732' => '/images/icons/splash-2048×2732.png',
-        ],
+//        'splash' => [
+//            '640×1136' => '/images/icons/splash-640×1136.png',
+//            '750×1334' => '/images/icons/splash-750×1334.png',
+//            '828×1792' => '/images/icons/splash-828×1792.png',
+//            '1125×2436' => '/images/icons/splash-1125×2436.png',
+//            '1242×2208' => '/images/icons/splash-1242×2208.png',
+//            '1242×2688' => '/images/icons/splash-1242×2688.png',
+//            '1536×2048' => '/images/icons/splash-1536×2048.png',
+//            '1668×2224' => '/images/icons/splash-1668×2224.png',
+//            '1668×2388' => '/images/icons/splash-1668×2388.png',
+//            '2048×2732' => '/images/icons/splash-2048×2732.png',
+//        ],
         'shortcuts' => [
             [
                 'name' => 'Shortcut Link 1',
                 'description' => 'Shortcut Link 1 Description',
                 'url' => '/shortcutlink1',
                 'icons' => [
+                    'sizes' => '72x72',
                     "src" => "/images/icons/icon-72x72.png",
-                    "purpose" => "any"
+                    'type' => 'image/png',
+                    "purpose" => "any",
                 ]
             ],
             [
@@ -86,6 +88,12 @@ return [
                 'description' => 'Shortcut Link 2 Description',
                 'url' => '/shortcutlink2'
             ]
+        ],
+        'related_applications' => [
+            [
+                'platform' => 'play',
+                'url' => '',
+            ],
         ],
     ],
     'metas' => [

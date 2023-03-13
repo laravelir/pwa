@@ -20,25 +20,25 @@
         window.addEventListener('beforeinstallprompt', event => {
             e.preventDefault();
             installPromptEvent = event;
+
+            document.querySelector('.btn_show_install_banner').addEventListener('click', (e) => {
+                e.preventDefault();
+                if (installPromptEvent) {
+                    installPromptEvent.prompt();
+                    installPromptEvent.userChoice
+                        .then((choice) => {
+                            if (choice.outcome === 'accepted') {
+                                console.log("User accepted the A2HS prompt");
+                            } else {
+                                console.log("User dismissed the A2HS prompt");
+                            }
+
+                            installPromptEvent = null;
+                        });
+                }
+            });
+
         });
-
-        document.querySelector('.btn_show_banner').addEventListener('click', (e) => {
-            e.preventDefault();
-            if (installPromptEvent) {
-                installPromptEvent.prompt();
-                installPromptEvent.userChoice
-                    .then((choice) => {
-                        if (choice.outcome === 'accepted') {
-
-                        } else {
-
-                        }
-
-                        installPromptEvent = null;
-                    });
-            }
-        });
-
 
         const getNotificationPermission = async () => {
             if (navigator.permissions) {
